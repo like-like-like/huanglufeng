@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bruceliu.mapper.DepartMapper">
+
+    <insert id="addDepart">
+        INSERT into t_depart VALUES (null,#{name},now(),0)
+    </insert>
+
+
+    <select id="getTotalCount" resultType="int">
+        SELECT count(id) FROM t_depart where del=0
+    </select>
+
+    <select id="getDeparts" resultType="com.bruceliu.pojo.Depart">
+        SELECT * FROM t_depart where del=0 limit #{pageStart},#{pageSize}
+    </select>
+
+    <update id="deleteDepart">
+        UPDATE t_depart set del=1 where id=#{id}
+    </update>
+    
+    <select id="findDeparts" resultType="com.bruceliu.pojo.Depart">
+         SELECT * FROM t_depart where del=0
+    </select>
+
+</mapper>

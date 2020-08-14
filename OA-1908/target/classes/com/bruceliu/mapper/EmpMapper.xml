@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bruceliu.mapper.EmpMapper">
+
+    <select id="login" resultType="com.bruceliu.pojo.Emp">
+        SELECT * FROM t_emp where no=#{no} and pass=#{pass} and del=0
+    </select>
+
+    <insert id="addEmp">
+        INSERT  into t_emp VALUES (null,#{no},'888888',#{name},#{did},1,#{sex},#{email},#{qq},#{phone},#{createdate},#{photo},0)
+    </insert>
+
+</mapper>
